@@ -1,17 +1,25 @@
 <html>
 	<head>
 		<title>Scores</title>
+		<link rel="stylesheet" href="app.css" type="text/css" media="screen" charset="utf-8">
 		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-		<script src="scoreboard.js"></script>
-		<script src="app.js"></script>
+		<script src="engine.js"></script>
+		<script>
+			$(function() {
+				run();
+			})
+		</script>
 	</head>
 	<body>
-		<div id="score">0</div>
-		<ul class="responses">
-			<li><a class="response" data-increment="100">Correct</a></li>
-			<li><a class="response" data-increment="0">Incorrect</a></li>
-			<li><a class="response" data-increment="0">Incorrect</a></li>
-			<li><a class="response" data-increment="0">Incorrect</a></li>
-		</ul>
+		<div id="background">
+			<div id="score"></div>
+			<div id="question"></div>
+			<div id="answers">
+				<div class="answer"></div>
+				<div class="answer"></div>
+				<div class="answer"></div>
+				<div class="answer"></div>
+			</div>
+		</div>
 	</body>
 </html>

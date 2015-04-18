@@ -1,0 +1,48 @@
+* {
+    font-size: 18px;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#background {
+    background: #69C;
+    bottom: 0;
+    color: white;
+    left: 0;
+    padding: 20px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#score {
+    font-size: 48px;
+}
+
+#question {
+    margin: 20px 0;
+}
+
+#answers {
+    bottom: 20px;
+    left: 20px;
+    position: absolute;
+    right: 20px;
+}
+
+#answers > div {
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px 0;
+    padding: 10px 10px;
+}
+
+#answers > div:hover {
+    background: rgba(255,255,255,0.2);
+}
