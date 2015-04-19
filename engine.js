@@ -38,16 +38,6 @@ var questions = [
             'D'
         ],
         correct: 0
-    },
-    {
-        question: '5. Which answer is correct?',
-        answers: [
-            'A',
-            'B',
-            'C',
-            'D'
-        ],
-        correct: 0
     }
 ];
 
@@ -82,7 +72,7 @@ function updateQuestionTextUsingQuestion(question) {
 }
 
 function updateAnswerTextUsingQuestion(question) {
-    $('#answers > *').each(function(i) {
+    $('#answers > div').each(function(i) {
         var $answer = $(this);
         var text = question.answers[i];
         $answer.text(text);
@@ -94,10 +84,10 @@ function updateCurrentScore() {
 }
 
 function registerEventsForAnswers() {
-    $('#answers > *').each(function(i) {
+    $('#answers > div').each(function(i) {
         var $answer = $(this);
         $answer.click(function(event) {
-            var correct = checkAnswerIndex(i);
+            var correct = checkAnswerIndexForCurrentQuestion(i);
             if (correct == true) {
                 score++;
             }
@@ -107,7 +97,7 @@ function registerEventsForAnswers() {
     })
 }
 
-function checkAnswerIndex(i) {
+function checkAnswerIndexForCurrentQuestion(i) {
     var question = getCurrentQuestion();
     return (question.correct == i);
 }

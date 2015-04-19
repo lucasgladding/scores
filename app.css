@@ -1,12 +1,12 @@
-* {
-    font-size: 18px;
-}
-
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
     width: 100%;
+}
+
+* {
+    font-size: 24px;
 }
 
 #background {
@@ -21,7 +21,12 @@ html, body {
 }
 
 #score {
-    font-size: 48px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 4px;
+    font-size: 72px;
+    margin: 0;
+    padding: 10px 20px;
+    text-align: center;
 }
 
 #question {
@@ -40,7 +45,7 @@ html, body {
     border-radius: 4px;
     cursor: pointer;
     margin: 10px 0;
-    padding: 10px 10px;
+    padding: 10px;
 }
 
 #answers > div:hover {
