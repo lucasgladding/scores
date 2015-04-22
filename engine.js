@@ -38,6 +38,66 @@ var questions = [
             'D'
         ],
         correct: 0
+    },
+    {
+        question: '5. Which answer is correct?',
+        answers: [
+            'A',
+            'B',
+            'C',
+            'D'
+        ],
+        correct: 0
+    },
+    {
+        question: '6. Which answer is correct?',
+        answers: [
+            'A',
+            'B',
+            'C',
+            'D'
+        ],
+        correct: 0
+    },
+    {
+        question: '7. Which answer is correct?',
+        answers: [
+            'A',
+            'B',
+            'C',
+            'D'
+        ],
+        correct: 0
+    },
+    {
+        question: '8. Which answer is correct?',
+        answers: [
+            'A',
+            'B',
+            'C',
+            'D'
+        ],
+        correct: 0
+    },
+    {
+        question: '9. Which answer is correct?',
+        answers: [
+            'A',
+            'B',
+            'C',
+            'D'
+        ],
+        correct: 0
+    },
+    {
+        question: '10. Which answer is correct?',
+        answers: [
+            'A',
+            'B',
+            'C',
+            'D'
+        ],
+        correct: 0
     }
 ];
 
@@ -47,6 +107,7 @@ var score = 0;
 
 function run() {
     update();
+    registerEventsForStart();
     registerEventsForAnswers();
 }
 
@@ -68,11 +129,11 @@ function getCurrentQuestion() {
 
 function updateQuestionTextUsingQuestion(question) {
     var text = question.question;
-    $('#question').text(text);
+    $('.question').text(text);
 }
 
 function updateAnswerTextUsingQuestion(question) {
-    $('#answers > div').each(function(i) {
+    $('.answer').each(function(i) {
         var $answer = $(this);
         var text = question.answers[i];
         $answer.text(text);
@@ -80,11 +141,19 @@ function updateAnswerTextUsingQuestion(question) {
 }
 
 function updateCurrentScore() {
-    $('#score').text(score);
+    $('.score').text(score);
+}
+
+function registerEventsForStart() {
+    $('.button-start').click(function() {
+        indexForCurrentQuestion = 0;
+        score = 0;
+        update();
+    });
 }
 
 function registerEventsForAnswers() {
-    $('#answers > div').each(function(i) {
+    $('.answer').each(function(i) {
         var $answer = $(this);
         $answer.click(function(event) {
             var correct = checkAnswerIndexForCurrentQuestion(i);
@@ -112,6 +181,19 @@ function incrementCurrentQuestion() {
     if (questions.length > i) {
         indexForCurrentQuestion = i;
     } else {
-        indexForCurrentQuestion = 0;
+        updateConclusionScoreText();
+        navigate('#conclusion');
     }
 }
+
+function updateConclusionScoreText() {
+    $('#conclusion-score').text(score);
+}
+
+function navigate(page) {
+    window.location = page;
+}
+
+$(function() {
+    run(); 
+});
